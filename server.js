@@ -39,9 +39,7 @@ function sleep(ms) {
 }
 
 app.use(express.json());
-if (require.main === module) {
-  app.use(express.static(path.join(__dirname, 'public')));
-}
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.post('/api/lookup', async (req, res) => {
   const { ips } = req.body;
