@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BulkIP Lookup</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>BulkIP</h1>
+      <p class="subtitle">Paste logs, extract IPs, look them all up.</p>
+    </header>
+
+    <main>
+      <section class="input-section">
+        <div class="textarea-header">
+          <label for="log-input">Paste raw logs</label>
+          <span id="ip-counter" class="ip-counter"></span>
+        </div>
+        <textarea
+          id="log-input"
+          placeholder="Paste any log data here — IPv4 and IPv6 addresses will be extracted automatically."
+          rows="10"
+          spellcheck="false"
+        ></textarea>
+        <div class="input-actions">
+          <button id="lookup-btn" class="btn btn-primary" disabled>Look Up IPs</button>
+          <button id="clear-btn" class="btn btn-ghost">Clear</button>
+        </div>
+      </section>
+
+      <section id="results-section" class="results-section hidden">
+        <div class="results-toolbar">
+          <span id="results-count" class="results-count"></span>
+          <div class="toolbar-actions">
+            <button id="copy-json-btn" class="btn btn-sm">Copy JSON</button>
+            <button id="export-csv-btn" class="btn btn-sm">Export CSV</button>
+          </div>
+        </div>
+        <div id="results-grid" class="results-grid"></div>
+      </section>
+
+      <div id="loading" class="loading hidden">
+        <div class="spinner"></div>
+        <span id="loading-text">Looking up IPs...</span>
+      </div>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
